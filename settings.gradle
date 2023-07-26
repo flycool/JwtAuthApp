@@ -14,4 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "JwtAuthApp"
 include ':app'
-include ':ktor-jwt'

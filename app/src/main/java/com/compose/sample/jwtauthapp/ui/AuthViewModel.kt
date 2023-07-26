@@ -23,10 +23,6 @@ class AuthViewModel @Inject constructor(
     private val _result = MutableSharedFlow<AuthResult<Unit>>()
     val result = _result.asSharedFlow()
 
-    init {
-        authenticate()
-    }
-
     fun onEvent(event: AuthUiEvent) {
         when (event) {
             AuthUiEvent.SignIn -> {
@@ -67,7 +63,7 @@ class AuthViewModel @Inject constructor(
         }
     }
 
-    private fun authenticate() {
+    fun authenticate() {
         authLaunch {
             repository.authenticate()
         }

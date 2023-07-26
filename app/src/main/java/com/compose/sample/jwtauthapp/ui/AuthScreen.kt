@@ -39,6 +39,10 @@ fun AuthScreen(
     val context = LocalContext.current
 
     val result by viewModel.result.collectAsState(initial = AuthResult.NoEvent)
+
+    LaunchedEffect(Unit) {
+        viewModel.authenticate()
+    }
     LaunchedEffect(result) {
         when (result) {
             is AuthResult.Authorized -> {
